@@ -26,8 +26,8 @@
 
 ## Part 4 — Foundation
 
-- [ ] Install Django
-- [ ] Create the Django project
+- [x] Install Django
+- [x] Create the Django project
 - [ ] Configure the database
 - [ ] Configure tests
 - [ ] Create the first application
