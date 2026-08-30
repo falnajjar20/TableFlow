@@ -27,6 +27,12 @@ class TableDetailTests(TestCase):
             kwargs={"qr_token": token},
         )
 
+    def get_qr_url(self):
+        return reverse(
+            "restaurants:table-qr",
+            kwargs={"qr_token": self.table.qr_token},
+        )
+
     def test_active_table_page_loads(self):
         response = self.client.get(self.get_table_url())
 
@@ -50,5 +56,20 @@ class TableDetailTests(TestCase):
         self.table.save(update_fields=["is_active"])
 
         response = self.client.get(self.get_table_url())
+
+        self.assertEqual(response.status_code, 404)
+
+    def test_qr_code_returns_png_image(self):
+        response = self.client.get(self.get_qr_url())
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "image/png")
+        self.assertTrue(response.content.startswith(b"\x89PNG\r\n\x1a\n"))
+
+    def test_inactive_table_qr_returns_404(self):
+        self.table.is_active = False
+        self.table.save(update_fields=["is_active"])
+
+        response = self.client.get(self.get_qr_url())
 
         self.assertEqual(response.status_code, 404)

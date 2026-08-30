@@ -10,4 +10,9 @@ urlpatterns = [
         views.table_detail,
         name="table-detail",
     ),
+    path(
+        "t/<uuid:qr_token>/qr.png",
+        views.table_qr_code,
+        name="table-qr",
+    ),
 ]
