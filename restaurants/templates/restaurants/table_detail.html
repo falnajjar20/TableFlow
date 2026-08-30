@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ table.restaurant.name }} — {{ table.name }}</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 1.5rem;
+            font-family: system-ui, sans-serif;
+            color: #173b32;
+            background: #f6f2e9;
+        }
+
+        main {
+            width: min(100%, 440px);
+            margin: 3rem auto;
+        }
+
+        .eyebrow {
+            color: #b36b25;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+        }
+
+        h1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .table-name {
+            margin-top: 0;
+            color: #65736f;
+        }
+
+        .card {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #d8ddd9;
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 1rem 3rem rgb(23 59 50 / 8%);
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            color: #27634f;
+            background: #dcebe4;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <p class="eyebrow">TABLEFLOW</p>
+        <h1>{{ table.restaurant.name }}</h1>
+        <p class="table-name">{{ table.name }}</p>
+
+        <section class="card">
+            <span class="status">Table recognized</span>
+            <h2>No open bill yet</h2>
+            <p>Ask a staff member to open a bill for this table.</p>
+        </section>
+    </main>
+</body>
+</html>

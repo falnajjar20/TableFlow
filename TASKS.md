@@ -29,5 +29,5 @@
 - [x] Install Django
 - [x] Create the Django project
 - [ ] Configure the database
-- [ ] Configure tests
-- [ ] Create the first application
+- [x] Configure tests
+- [x] Create the first application
